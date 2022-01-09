@@ -1,0 +1,14 @@
+version: '3.4'
+
+services:
+  postgresdb:
+    image: postgres
+
+  migration:
+    image: ${DOCKER_REGISTRY-}migration
+    build:
+      context: .
+      dockerfile: Migration/Dockerfile
+
+volumes:
+  postgres_data:

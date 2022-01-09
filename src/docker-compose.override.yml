@@ -1,0 +1,17 @@
+version: '3.4'
+
+services:
+  postgresdb:
+    container_name: postgresdb
+    environment:
+      - POSTGRES_USER=developer
+      - POSTGRES_PASSWORD=123
+      - POSTGRES_DB=sample
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  migration:
+    container_name: migration
+    restart: always
+    depends_on:
+      - postgresdb
