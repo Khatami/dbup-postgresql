@@ -4,11 +4,11 @@ services:
   postgresdb:
     image: postgres
 
-  migration:
-    image: ${DOCKER_REGISTRY-}migration
+  aspnetcore:
+    image: ${DOCKER_REGISTRY-}aspnetcore
     build:
       context: .
-      dockerfile: Migration/Dockerfile
+      dockerfile: AspNetCore/Dockerfile
 
 volumes:
   postgres_data:

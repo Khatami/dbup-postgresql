@@ -10,8 +10,8 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
-  migration:
-    container_name: migration
+  aspnetcore:
+    container_name: aspnetcore
     restart: always
     depends_on:
       - postgresdb
