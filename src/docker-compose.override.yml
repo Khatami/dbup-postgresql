@@ -6,12 +6,25 @@ services:
     environment:
       - POSTGRES_USER=developer
       - POSTGRES_PASSWORD=123
-      - POSTGRES_DB=sample
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
   aspnetcore:
     container_name: aspnetcore
     restart: always
+    environment:
+      - "ConnectionStrings__SampleDB=Server=postgresdb;Port=5432;Database=Sampledb;User Id=developer;Password=123;"
     depends_on:
       - postgresdb
+
+  pgadmin:
+    container_name: pgadmin
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@aspnetrun.com
+      - PGADMIN_DEFAULT_PASSWORD=admin1234
+    restart: always
+    ports:
+      - "5050:80"
+    volumes:
+      - pgadmin_data:/root/.pgadmin
+      - pgadmin_data:/var/lib/pgadmin

@@ -8,8 +8,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Migration\Step001-create_coupon_table.sql" />
+    <None Remove="Migration\Step002-seed_coupon_table.sql" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Migration\Step001-create_coupon_table.sql" />
+    <EmbeddedResource Include="Migration\Step002-seed_coupon_table.sql" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="dbup-postgresql" Version="4.5.0" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.14.0" />
+    <PackageReference Include="Npgsql" Version="6.0.2" />
   </ItemGroup>
 
 </Project>

@@ -10,5 +10,9 @@ services:
       context: .
       dockerfile: AspNetCore/Dockerfile
 
+  pgadmin:
+    image: dpage/pgadmin4
+
 volumes:
   postgres_data:
+  pgadmin_data:
